@@ -2,17 +2,13 @@
 bool n1 = int.TryParse(Console.ReadLine(), out int num1);
 Console.WriteLine("num 2?");
 bool n2 = int.TryParse(Console.ReadLine(), out int num2);
-if (n1 && n2)
-{
-    numbers();
+int pow(int num1, int num2) {
+    int result = num1;
+    for (int i = 1; i < num2; i++) {
+        result *= num1;
 }
-;
-void numbers()
-{
-    double res = Math.Pow(num1, num2);
-    Console.WriteLine(res);
+    return result;
 }
-;
 
 //o
 
@@ -37,18 +33,19 @@ for (int i = 0; i < num; i++)
 
 //x
 
-Console.WriteLine("enter word");
-string text1 = Console.ReadLine();
-string text2 = new string(text1.Reverse().ToArray());
-if (text1 == text2)
+bool isPailndrome(string pal)
 {
-    Console.WriteLine("palindrome");
+    if(pal.Length < 2)
+    {
+        return true;
+    }
+    if (pal[0] != pal[pal.Length - 1])
+    {
+        return false;
+    }
+    string middle = pal.Substring(1, pal.Length-2);
+    return isPailndrome(middle);
 }
-else
-{
-    Console.WriteLine("not palindrome");
-}
-;
 
 //o
 
@@ -56,16 +53,13 @@ else
 
 //x
 
-Console.WriteLine("number?");
-bool nn1 = int.TryParse(Console.ReadLine(), out int nnn);
-Console.WriteLine("power?");
-bool p = int.TryParse(Console.ReadLine(), out int power);
-if (nn1 && p)
+int Pow(int nnn, int powerer)
 {
-    numbers();
-};
-void numbers()
-{
-    double res = Math.Pow(nnn, power);
-    Console.WriteLine(res);
-};
+    if(powerer == 1)
+    {
+        return nnn;
+    }
+    return num * Pow(nnn, powerer - 1);
+}
+
+//o
